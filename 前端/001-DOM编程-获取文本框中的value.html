@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>DOM编程-获取文本框中的value</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/* 
+			1、JS包括三大块
+			ECMAScript:JS核心语法(ES规范/ECMA-262标准)
+			DOM:Document Object Model(文档对象模型：对网页中的节点进行
+			增删改的过程)。html被当作一颗DOM树来对待。
+				var domObj = document.getElementById("id");
+			BOM:Browser Object Model(浏览器对象模型)
+				关闭浏览器窗口、打开一个浏览器窗口、后退、前进、
+				浏览器地址栏上的地址等，都是BOM编程。
+				
+			2、DOM和BOM的区别与联系
+				BOM的顶级对象是：window
+				DOM的顶级对象是：document
+				实际上BOM是包括DOM的。
+				
+			*/
+			/* window.onload = function(){
+				var dom = document.getElementById("btn");
+				alert(dom);
+			} */
+			window.onload = function(){
+				var btnElt = document.getElementById("btn");
+				btnElt.onclick = function(){
+					
+					/* var usernameElt = document.getElementById("username");
+					var username = usernameElt.value;
+					alert(username); */
+					alert(document.getElementById("username").value);
+					document.getElementById("username").value = "周小花";
+				}
+				
+			}
+			
+			
+		</script>
+		<!-- <input type="button" id="btn" value="hello" /> -->
+		
+		<input type="text" id="username" />
+		<input type="button" value="获取文本框的value" id="btn" />
+		<hr />
+		<script type="text/javascript">
+			window.onload = function(){
+				document.getElementById("setBtn").onclick = function(){
+					//获取第一框的值
+					document.getElementById("username2").value=
+					document.getElementById("username1").value;
+					
+				}
+			}
+			
+		</script>
+		
+		<input type="text" id="username1"/>
+		<br />
+		<input type="text" id="username2"/>
+		<br />
+		<input type="button" value=
+		"将第一个文本框中的value赋值到第二个文本框上" id="setBtn" />
+		
+		<!-- blur事件：失去焦点事件 -->
+	    <input type="text" onblur="alert(this.value)" />
+	</body>
+</html>

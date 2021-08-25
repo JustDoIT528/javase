@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>innerHTML和innerText</title>
+		
+		<style type="text/css">
+			#div1{
+				
+				background-color: aqua;
+				width: 300px;
+				height: 300px;
+				border: 1px black solid;
+				position: absolute;
+				top: 100px;
+				left: 100px;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<!-- 
+			innerText和innerHTML属性有什么区别？
+				相同点：都是设置元素内部的内容
+				不同点：innerHTML会把后面的“字符串”当作一段HTML代码
+						解释并执行。 
+						innerText:当作普通字符串看待。
+		 -->
+		<script type="text/javascript">
+			window.onload = function(){
+				var btn = document.getElementById("btn");
+				btn.onclick = function(){
+					//设置div的内容
+					var divElt = document.getElementById("div1");
+					//divElt.innerHTML = "sdadasdsadsadsad";
+					divElt.innerHTML="<font color = 'red'>用户名不能为空</font>";
+					//divElt.innerText="用户名不能为空！！！！！！";
+				}
+				
+			}
+			
+		</script>
+		
+		<input type="button" value="设置div中的内容" id="btn" />
+		
+		<div id="div1"></div>
+	</body>
+</html>
